@@ -1,0 +1,27 @@
+﻿@model List<Message>
+@await Html.PartialAsync("_HeaderPartial")
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<div class="container mt-5">
+    <h2 class="mb-4">Your Notes</h2>
+    <div class="list-group">
+        @if(Model.Any())
+        {
+            foreach (var note in Model)
+            {
+                <div class="list-group-item">
+                    <h5 class="mb-1">@note.NameText</h5>
+                    <p class="mb-1">@note.Text</p>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="list-group-item">
+                <h5 class="mb-1">Ви ще нічого не записували у нотатки!</h5>              
+            </div>
+        }
+
+    </div>
+</div>
